@@ -1,12 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
 html {
-    background: #018DED url(#);
-    background-size: cover;
-    font-family: 'helvetica neue';
+    font-family: 'Roboto', sans-serif;
     text-align: center;
-    font-size: 10px;
+    font-weight: 300;
 }
 
 body {
+    background-image: url('../assets/images/city-night-img.jpg');
+    background-size: cover;
+    background-color: #fff;
     margin: 0;
     font-size: 2rem;
     display: flex;
@@ -18,16 +21,18 @@ body {
 .clock {
     width: 30rem;
     height: 30rem;
-    border: 20px solid white;
+    border: 0.2rem solid #fff;
     border-radius: 50%;
     margin: 50px auto;
     position: relative;
     padding: 2rem;
-    box-shadow:
-        0 0 0 4px rgba(0,0,0,0.1),
-        inset 0 0 0 3px #EFEFEF,
-        inset 0 0 10px black,
-        0 0 10px rgba(0,0,0,0.2);
+    box-shadow: 
+            0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 2rem  #0839f9,
+            0 0 0.8rem #0839f9,
+            0 0 2.8rem #0839f9,
+            inset 0 0 1.3rem #0839f9;
 }
 
 .clock-face {
@@ -38,13 +43,33 @@ body {
 }
 
 .hand {
+    animation: flicker 1.5s infinite alternate;
     width: 50%;
     height: 6px;
-    background: black;
+    background: #0839f9;
     position: absolute;
     top: 50%;
     transform-origin: 100%;
     transform: rotate(90deg);
     transition: all 0.05s;
     transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+
+@keyframes flicker {
+      
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        box-shadow:
+        0 0 4px #fff,
+        0 0 11px #fff,
+        0 0 19px #fff,
+        0 0 40px #0839f9,
+        0 0 80px #0839f9,
+        0 0 90px #0839f9,
+        0 0 100px #0839f9,
+        0 0 150px #0839f9;
+    }
+    
+    20%, 24%, 55% {
+        box-shadow: none;
+    }
 }
